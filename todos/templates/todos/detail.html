@@ -9,6 +9,9 @@
     <main>
         <div>
             <h1>{{ todolist.name }}</h1>
+            <p>
+                <a href="{% url 'todo_list_update' todolist.id}">Edit</a>
+            </p>
             <h2>Tasks</h2>
             <table>
                 <thead>
@@ -21,7 +24,9 @@
                     {% for task in todolist.items.all %}
                     <tr>
                         <td>
-                            {{ task.task }}
+                            <a href="{% url 'todo_list_update' task.id %}">
+                                {{ task.task }}
+                            </a>
                         </td>
                         <td>
                             {{ task.due_date | date:'F j, Y' }}

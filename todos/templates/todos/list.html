@@ -9,10 +9,6 @@
     <main>
         <div>
             <h1>My List</h1>
-            <p>
-                <a href="{% url 'todo_list_create' %}">Create a new list</a>
-            </p>
-
             <table>
                 <thead>
                     <tr>
@@ -21,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for list in todo_list %}
+                    {% for list in todo_list_list %}
                     <tr>
                         <td>
                             <a href="{% url 'todo_list_detail' list.id %}">{{list.name}}</a>
@@ -31,6 +27,7 @@
                         </td>
                     </tr>
                     {% endfor %}
+
                 </tbody>
 
             </table>
