@@ -8,7 +8,7 @@
 <body>
     <main>
         <div>
-            <h1>My List</h1>
+            <h1>My Lists</h1>
             <p>
                 <a href="{% url 'todo_list_create' %}">Create a new list</a>
             </p>
@@ -23,14 +23,14 @@
                         <th>Number of Items</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {% for list in todo_lists %}
+                <tbody> 
+                    {% for list in todo_list %}
                     <tr>
                         <td>
-                            <a href="{% url 'todo_list_detail' id =list.id %}">{{list.name}}</a>
+                            <a href="{% url 'todo_list_detail' list.id %}">{{ list.name }}</a>
                         </td>
                         <td>
-                            {{list.tasks.count}}
+                            {{ list.items.all|length }}
                         </td>
                     </tr>
                     {% endfor %}
